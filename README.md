@@ -14,14 +14,13 @@ Currently the repository provides the following options:
 ## Dependencies
 
 1. Ensure Ansible is installed, see https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-ubuntu
-1. Ensure python jmespath is installed
+2. Ensure python jmespath is installed
 ```bash
 $ sudo apt update
 $ sudo apt install python3-jmespath # Ubuntu 20.04
 $ sudo apt install python-jmespath # Ubuntu 18.04
 ```
-
-1. Ensure git is installed
+3. Ensure git is installed
 ```bash
 $ sudo apt update
 $ sudo apt install git
@@ -80,9 +79,9 @@ terraform_cli:
 ```
 $ vagrant ssh-config
 ```
-1. Copy the output of this into an SSH config file, for example my default SSH config is at `~/.ssh/config`. In VScode you can easily open this file, or generate a custom config file for VScode to use, by pressing opening the command pallette and selecting Remote-SSH: Open Configuration File
+2. Copy the output of this into an SSH config file, for example my default SSH config is at `~/.ssh/config`. In VScode you can easily open this file, or generate a custom config file for VScode to use, by pressing opening the command pallette and selecting Remote-SSH: Open Configuration File
 
-1. Once setup you can then select to connect to the Vagrant box via ssh
+3. Once setup you can then select to connect to the Vagrant box via ssh
 
 NOTE: if you have added your ssh key(s) to your host ssh-agent these will automatically be forwarded via the remote ssh connection.
 
