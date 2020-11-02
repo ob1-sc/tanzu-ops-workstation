@@ -9,6 +9,33 @@ Currently the repository provides the following options:
 1. Setup tooling on any Ubuntu based distro
 1. Setup a local Ubuntu based Vagrant box with tooling
 
+### What is installed?
+
+* Docker
+* Lastpass
+* Git
+* Git-crypt
+* htop
+* vim (with opinionated plugins and config)
+* tmux (with opinionated plugins and config)
+* tree
+* gdebi
+* Powershell
+* AWS cli
+* Azure cli
+* BOSH cli
+* CF cli
+* credhub cli
+* kubectl cli
+* Packer cli
+* Terraform cli
+* TKGI cli
+* gomplate cli
+* OM cli
+* pivnet cli
+* bbl cli
+* jq cli
+
 # Setup Tooling on any Ubuntu based distro
 
 ## Dependencies
