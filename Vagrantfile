@@ -45,13 +45,15 @@ Vagrant.configure("2") do |config|
     # install jmespath, needs to be in separate provisioned to ansible_local
     # to ensure it is available when the ansible_local provisioner runs
     vagrant.vm.provision "shell", inline: "sudo apt update; sudo apt install -y python-jmespath"
+    vagrant.vm.provision "shell", inline: "sudo apt update; sudo apt install -y python3-jmespath"
 
     # run the tanzu-ops-playbook
     vagrant.vm.provision "ansible_local" do |ansible|
       ansible.playbook = "/vagrant/ansible-playbook/local.yml"
       ansible.verbose = false
       ansible.extra_vars = {
-        pivnet_api_token: PIVNET_API_TOKEN
+        pivnet_api_token: PIVNET_API_TOKEN,
+        ansible_python_interpreter:"/usr/bin/python3"
       }
     end
 
