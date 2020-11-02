@@ -15,7 +15,7 @@
 
 - name: Add Microsoft Azure PPA
   apt_repository:
-    repo: deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ "{{ubuntu_codename}}" main
+    repo: deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ "{{ ansible_distribution_release }}" main
     mode: "0644"
 
 - name: Install Microsoft Azure cli
