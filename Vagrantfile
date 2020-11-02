@@ -24,7 +24,7 @@ Vagrant.configure("2") do |config|
 
   config.disksize.size = DISK
 
-  config.vm.define "vagrant-workstation" do |vagrant|
+  config.vm.define "tanzu-ops-workstation" do |vagrant|
     vagrant.vm.box = "ubuntu/bionic64"
     vagrant.vm.provider :virtualbox do |v, override|
       v.memory = MEM
