@@ -25,11 +25,8 @@
         autoremove: true
 
 - name: setup vagrant user
-  hosts: tanzu-ops-workstation
-  vars:
-    user: vagrant
+  hosts: all
   become: true
-
   roles:
     - lastpass-user
     - docker-user

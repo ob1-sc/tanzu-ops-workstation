@@ -52,8 +52,9 @@ Vagrant.configure("2") do |config|
       ansible.playbook = "/vagrant/ansible-playbook/local.yml"
       ansible.verbose = false
       ansible.extra_vars = {
+        user: "vagrant",
         pivnet_api_token: PIVNET_API_TOKEN,
-        ansible_python_interpreter:"/usr/bin/python3"
+        ansible_python_interpreter: "/usr/bin/python3"
       }
     end
 
