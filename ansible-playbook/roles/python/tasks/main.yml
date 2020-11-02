@@ -1,4 +1,4 @@
 - name: Install PIP
   apt:
     name:
-      - python-pip
+      - python3-pip

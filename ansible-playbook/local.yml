@@ -25,7 +25,7 @@
         autoremove: true
 
 - name: setup vagrant user
-  hosts: vagrant-workstation
+  hosts: tanzu-ops-workstation
   vars:
     user: vagrant
   become: true
