@@ -1,0 +1,29 @@
+- name: install tmux
+  apt:
+    name: xdg-utils
+
+- name: install tmux
+  apt:
+    name: tmux
+
+- name: install xclip
+  apt:
+    name: xclip
+
+- name: setup tmux
+  become_user: "{{user}}"
+  copy:
+    src: files/.tmux.conf
+    dest: /home/{{user}}/
+
+- name: creates directory
+  become_user: "{{user}}"
+  file:
+    path: /home/{{user}}/.tmux/plugins/tpm
+    state: directory
+
+- name: install tmux plugin manager
+  become_user: "{{user}}"
+  git:
+    repo: https://github.com/tmux-plugins/tpm
+    dest: /home/{{user}}/.tmux/plugins/tpm

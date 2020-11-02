@@ -1,0 +1,37 @@
+---
+- name: setup tanzu operator environment
+  hosts: all
+  vars_files:
+    - vars.yml
+  become: true
+
+  pre_tasks:
+    - name: upgrade apt repositories
+      apt:
+        update_cache: true
+
+  roles:
+    - powershell
+    - lastpass
+    - docker-ce
+    - python
+    - misc
+    - tanzu
+
+  post_tasks:
+    - name: cleanup apt packages
+      apt:
+        autoclean: true
+        autoremove: true
+
+- name: setup vagrant user
+  hosts: vagrant-workstation
+  vars:
+    user: vagrant
+  become: true
+
+  roles:
+    - lastpass-user
+    - docker-user
+    - vim
+    - tmux

@@ -1,0 +1,26 @@
+---
+- name: install vim
+  apt:
+    name: vim
+
+- name: creates vim directory
+  become_user: "{{user}}"
+  file: 
+    path: /home/{{user}}/.vim
+    state: directory
+
+- name: install vundle package manager
+  become_user: "{{user}}"
+  git:
+    repo: https://github.com/VundleVim/Vundle.vim.git
+    dest: /home/{{user}}/.vim/bundle/Vundle.vim
+  
+- name: setup vim
+  become_user: "{{user}}"
+  copy:
+    src: files/.vimrc
+    dest: /home/{{user}}/
+
+- name: install vim plugins
+  become_user: "{{user}}"
+  command: "vim -E -s -c 'source /home/{{user}}/.vimrc' -c PluginInstall -c qa"
