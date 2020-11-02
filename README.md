@@ -1,6 +1,8 @@
 # Description
 
-The goal of this repository is to provide some quick and easy options for setting an a Workstation/Dev Environment with all of the tooling required for performing Tanzu Operations and Engineering work.
+The goal of this repository is to provide some quick and easy options for setting an a Workstation/Dev environment with all of the tooling required for performing Tanzu Operations and Engineering work.
+
+The content of this repository is not a supported product, rather an opinionated template for setting up a Workstation/Dev environment that Tanzu operators and engineers can use to build out their own environment. Feel free to modify with your own packages/dotfile/configs/etc and if you feel anything is generically reusable then please don't hesitate to make a pull request back to this repo. 
 
 Currently the repository provides the following options:
 
@@ -11,27 +13,37 @@ Currently the repository provides the following options:
 
 ## Dependencies
 
-1. Ensure ansible is installed
+1. Ensure Ansible is installed, see https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-on-ubuntu
+1. Ensure python jmespath is installed
 ```bash
 $ sudo apt update
-$ sudo apt install software-properties-common
-$ sudo apt-add-repository --yes --update ppa:ansible/ansible
-$ sudo apt install ansible
+$ sudo apt install python3-jmespath # Ubuntu 20.04
+$ sudo apt install python-jmespath # Ubuntu 18.04
 ```
 
-2. Ensure python jmespath is installed
+1. Ensure git is installed
 ```bash
 $ sudo apt update
-$ sudo apt install python-jmespath
+$ sudo apt install git
 ```
 
 ## Getting Started
 
+1. Clone this repo onto the server
+1. Run Ansible locally ensuring you update the `pivnet_api_token` var otherwise the playbook will not be able to connect to Pivnet:
+```bash
+$ sudo ansible-playbook --extra-vars "user=$(whoami) pivnet_api_token=<insert your pivnet token> ansible_python_interpreter=/usr/bin/python3" --connection=local --inventory 127.0.0.1, ./ansible-playbook/local.yml
+```
 
+## Specifying cli versions
 
-
-
-
+By default the playbook will install cli's based on the settings defined under `./ansible-playbook/roles/tanzu/defaults`, if you want to override these settings (such as the version or the install location) you can do this by adding an override into the `./ansible-playbook/vars.yml`, for example you could add the following into `./ansible-playbook/vars.yml` to install version 0.11.14 of Terraform instead of the latest version:
+```yaml
+---
+terraform_cli:
+  install_location: /usr/local/bin
+  version: 0.11.14
+```
 
 # Setup a local Ubuntu based Vagrant box with tooling
 
