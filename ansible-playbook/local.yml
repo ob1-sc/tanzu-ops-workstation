@@ -12,6 +12,8 @@
 
   roles:
     - powershell
+    - vim
+    - tmux
     - lastpass
     - docker-ce
     - python
@@ -30,5 +32,5 @@
   roles:
     - lastpass-user
     - docker-user
-    - vim
-    - tmux
+    - vim-user
+    - tmux-user

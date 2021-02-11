@@ -1,3 +1,5 @@
 [submodule "ansible-playbook/roles"]
 	path = ansible-playbook/roles
 	url = https://github.com/ob1-sc/ansible-roles.git
+[submodule "ansible-playbook/roles/"]
+	branch = main

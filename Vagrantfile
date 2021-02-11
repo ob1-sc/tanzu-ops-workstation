@@ -9,7 +9,7 @@ SYNC_CLIENT="/home/vagrant/workspace"
 GIT_USERNAME="Simon O'Brien"
 GIT_EMAIL="simonobrien@vmware.com"
 
-PIVNET_API_TOKEN="<insert your pivnet token>"
+PIVNET_API_TOKEN=""
 
 Vagrant.configure("2") do |config|
 
@@ -51,7 +51,7 @@ Vagrant.configure("2") do |config|
       ansible.playbook = "/vagrant/ansible-playbook/local.yml"
       ansible.verbose = false
       ansible.extra_vars = {
-        user: "vagrant",
+        local_user: "vagrant",
         pivnet_api_token: PIVNET_API_TOKEN,
         ansible_python_interpreter: "/usr/bin/python3"
       }
