@@ -1,6 +1,6 @@
 CPU=2
 MEM=2048
-DISK="30GB"
+DISK="40GB"
 LOCAL_DNS=""
 
 SYNC_HOST="~/Workspace"
