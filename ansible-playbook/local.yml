@@ -11,6 +11,7 @@
         update_cache: true
 
   roles:
+    - asdf
     - powershell
     - vim
     - tmux
@@ -19,6 +20,7 @@
     - python
     - misc
     - tanzu
+    - pivotal
 
   post_tasks:
     - name: cleanup apt packages
@@ -30,6 +32,7 @@
   hosts: all
   become: true
   roles:
+    - zsh-user
     - lastpass-user
     - docker-user
     - vim-user
