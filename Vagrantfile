@@ -25,8 +25,8 @@ Vagrant.configure("2") do |config|
   config.disksize.size = DISK
 
   config.vm.define "tanzu-ops-workstation" do |vagrant|
-    vagrant.vm.box = "ubuntu/bionic64"
-    vagrant.vm.provider :virtualbox do |v, override|
+    vagrant.vm.box = "bento/ubuntu-20.04"
+    config.vm.provider "vmware_desktop" do |v|
       v.memory = MEM
       v.cpus = CPU
     end
@@ -44,7 +44,7 @@ Vagrant.configure("2") do |config|
 
     # install jmespath, needs to be in separate provisioned to ansible_local
     # to ensure it is available when the ansible_local provisioner runs
-    vagrant.vm.provision "shell", inline: "sudo apt update; sudo apt install -y python-jmespath"
+    vagrant.vm.provision "shell", inline: "sudo apt update; sudo apt install -y python3-jmespath unzip"
 
     # run the tanzu-ops-playbook
     vagrant.vm.provision "ansible_local" do |ansible|
